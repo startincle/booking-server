@@ -1,6 +1,6 @@
 
 var MongoClient = require('mongodb').MongoClient;
-MongoClient.connect('mongodb://booking:booking@ds041678.mlab.com:41678/booking', (err, client) => {
+MongoClient.connect('mongodb://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@ds041678.mlab.com:41678/booking', (err, client) => {
   if (err) throw err;
 
   const db = client.db('booking');
@@ -10,8 +10,8 @@ MongoClient.connect('mongodb://booking:booking@ds041678.mlab.com:41678/booking',
   const bodyParser = require('body-parser');
   const email = require('./email');
 
-  const api_key = 'key-1b2ba253282e03f0b699b2940ad638d2';
-  const domain = 'mg.startincle.com';
+  const api_key = process.env.MAILGUN_API_KEY || 'key-1b2ba253282e03f0b699b2940ad638d2';
+  const domain = process.env.MAILGUN_URL || 'sandbox0a4dc2baee1c402892bf2d516cf81c69.mailgun.org';
   const from_who = 'getinvolved@startincle.com';
 
   const prod = process.env.NODE_ENV === 'production';
