@@ -65,5 +65,5 @@ MongoClient.connect('mongodb://booking:booking@ds041678.mlab.com:41678/booking',
     return res.send('Email Sent!')
   });
 
-  app.listen(port, () => console.log(`App listening on port ${port}!`))
+  app.listen(process.env.PORT || port, () => console.log(`App listening on port ${port}!`))
 });
