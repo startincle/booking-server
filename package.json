@@ -5,5 +5,8 @@
     "mailgun-js": "^0.16.0",
     "mongodb": "^3.0.2",
     "mongoose": "^5.0.6"
+  },
+  "scripts": {
+    "start": "node app.js",
   }
 }
